@@ -1,0 +1,12 @@
+_BASE_: "Base-DensePose-RCNN-FPN.yaml"
+MODEL:
+  WEIGHTS: "/share/home/liuqiong/sunjunyao/detectron2/projects/DensePose/tmp/R-101.pkl"
+  RESNETS:
+    DEPTH: 101
+  ROI_DENSEPOSE_HEAD:
+    DECODER_ON: False
+SOLVER:
+  MAX_ITER: 180000
+  STEPS: (120000, 160000)
+  IMS_PER_BATCH: 16
+OUTPUT_DIR: "./output/densepose_R_101_s1x_4gpu/"
